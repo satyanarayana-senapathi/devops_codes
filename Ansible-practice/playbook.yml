@@ -1,0 +1,39 @@
+---
+- name: install python3 nginx git
+  hosts: satya_systems
+  become: true
+
+  vars:
+    packages:
+      - python3
+      - nginx
+      - git
+  
+  tasks:
+    - name: Create directory
+      command: mkdir ~/mydirectory1
+
+    - name: Move into directory
+      command: cd ~/mydirectory1
+
+    - name: Create file
+      command: touch myfile1.txt
+
+    - name: Install packages
+      yum:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ packages }}"
+
+    - name: Start Nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+      when: "'nginx' in packages"
+
+    - name: pull repository
+      git:
+        repo: https://github.com/satyanarayana-zemoso/practice_dup.git
+        dest: /opt/repo
+      when: "'git' in packages"

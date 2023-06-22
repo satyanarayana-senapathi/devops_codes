@@ -1,0 +1,13 @@
+---
+- name: Imported Playbook
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Task 2
+      debug:
+        msg: "This is Task 2"
+
+    - name: Task 3
+      debug:
+        msg: "This is Task 3"

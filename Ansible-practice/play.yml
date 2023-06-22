@@ -1,0 +1,25 @@
+---
+- name: Install Python,nginix
+  hosts: satya_systems
+  become: true
+
+  vars:
+    package_server: nginx
+    package_language: python3
+
+  tasks:
+    - name: Install Python
+      yum:
+        name: "{{ package_language }}"
+        state: present
+
+    - name: Install Nginx
+      yum:
+        name: "{{ package_server }}"
+        state: present
+
+    - name: Start Nginx service
+      service:
+        name: "{{ package_server }}"
+        state: started
+        enabled: yes

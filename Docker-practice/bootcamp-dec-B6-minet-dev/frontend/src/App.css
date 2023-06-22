@@ -1,0 +1,31 @@
+@font-face {
+    font-family: Graphik Semi-bold;
+    src: url(../public/assets/theme/GraphikSemibold.otf);
+  }
+  @font-face {
+    font-family:Graphik Regular ;
+    src: url(../public/assets/theme/GraphikRegular.otf);
+  }
+  @font-face {
+    font-family:Graphik Medium ;
+    src: url(../public/assets/theme/GraphikMedium.otf);
+  }
+  body{
+    margin:0;
+    padding:0;
+    background-color: "#FAFCFF";
+  }
+  html::-webkit-scrollbar{
+    width:16px;
+  }
+  html::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px 10px rgb(255, 255, 255);
+    border: solid 6px transparent;
+    
+}
+
+html::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 10px 10px rgb(241, 180, 93);
+    border: solid 5px transparent;
+    border-radius:60px;
+}

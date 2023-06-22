@@ -1,0 +1,39 @@
+---
+- name: install apache httpd maven java docker
+  hosts: all
+  become: true
+
+  vars:
+    packages:
+      - java 
+      - httpd
+      - maven
+      - docker
+
+  tasks:
+    - name: Install packages
+      yum:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ packages }}"
+
+    - name: Start Apache service
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+      become: true
+
+  #   - name: Configure Apache
+  #     template:
+  #       src: apache.conf.j2
+  #       dest: /etc/httpd/conf.d/my_apache.conf
+  #     notify:
+  #       - Restart Apache
+
+  # handlers:
+  #   - name: Restart Apache
+  #     service:
+  #       name: httpd
+  #       state: restarted
+  #     become: true

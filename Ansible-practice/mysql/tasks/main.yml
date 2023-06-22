@@ -1,0 +1,13 @@
+---
+- name: Install MySQL packages
+  yum:
+    name:
+      - mysql-server
+    state: present
+
+- name: Start and enable MySQL service
+  service:
+    name: mysql
+    state: started
+    enabled: yes
+

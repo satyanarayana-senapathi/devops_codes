@@ -1,0 +1,4 @@
+---
+- name: Print Message
+  debug:
+    msg: "{{ my_variable }}"

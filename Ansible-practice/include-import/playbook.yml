@@ -1,0 +1,17 @@
+---
+- name: Example Playbook
+  hosts: all
+  gather_facts: true
+  vars: 
+    my_variable: "include"
+
+  tasks:
+    - name: Include Variables
+      include_vars:
+        file: vars.yml
+      when: my_variable == "include"
+
+    - name: Import Task
+      import_tasks: tasks.yml
+
+

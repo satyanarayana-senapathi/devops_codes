@@ -1,0 +1,23 @@
+---
+- name: Example Playbook with Block
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: Execute Block of Tasks
+      block:
+        - name: Task 1
+          debug:
+            msg: "This is Task 1"
+        - name: Task 2
+          debug:
+            msg: "This is Task 2"
+      rescue:
+        - name: Handle Failure
+          debug:
+            msg: "An error occurred while executing the block"
+      always:
+        - name: Clean Up
+          debug:
+            msg: "Performing cleanup tasks"
+

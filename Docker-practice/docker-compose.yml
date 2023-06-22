@@ -1,0 +1,30 @@
+# version: '3'
+# services:
+#   reactapp:
+#     image: counterapp:1.0
+#     ports:
+#       - 3005:3000
+#     environment:
+#       - REACT_APP_NAME=satyanarayana
+#     volumes:
+#       - ./my-app/src:/app/src
+  
+#   springboot:
+#     image: springbootapp:1.0
+#     ports:
+#       - 9091:8080
+version: '3'
+services:
+  reactapp:
+    build: ./my-app
+    ports:
+      - 3005:3000
+    environment:
+      - REACT_APP_NAME=satyanarayana
+    volumes:
+       - ./my-app/src:/app/src
+
+  springboot:
+    build: ./spring-boot-assignment 
+    ports:
+      - 9091:8080

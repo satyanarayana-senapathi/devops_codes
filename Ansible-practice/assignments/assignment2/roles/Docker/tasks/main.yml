@@ -1,0 +1,12 @@
+---
+- name: Install required packages for Docker
+  yum:
+    name:
+      - docker
+    state: present
+
+- name: Enable the Docker service
+  service:
+    name: docker
+    state: started
+    enabled: yes

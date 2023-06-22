@@ -1,0 +1,19 @@
+version: "3"
+services:
+  web-server:
+    build: 
+      context: ./frontend
+      dockerfile: web.Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - frontend:/app/frontend
+  
+  mock-server:
+    build:
+      context: ./frontend
+      dockerfile: server.Dockerfile
+    ports:
+      - 5000:5000
+    volumes:
+      - frontend/api/db.json:/app/frontend/api/db.json

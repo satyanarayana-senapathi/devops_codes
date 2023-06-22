@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+  margin-top: 20%;
+}
+.btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+}
+
